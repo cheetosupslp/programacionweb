@@ -8,8 +8,14 @@
 	<meta charset="utf-8"/>
 	<meta name="autor" content="UPSLP">
 	<link rel="icon" type="image/jfif" href="imagenes/logo.jfif">
+	<style type="text/css">
+		td{
+			border: 1px solid black;
+			background-color: purple;
+		}
+	</style>
 </head>
-<body>
+<body background = "imagenes/gaito.png" style="background-repeat: no-repeat; background-size: 100%; background-attachment: fixed;">
 	<h1>hi everybody</h1>
 	<h1>this is my first website</h1>
 	<!--title-->
@@ -27,9 +33,9 @@
 		<!--ordered list-->
 		<ol type="I" start="5">
 
-			<a href="http://www.upslp.edu.mx"
-			alt="ir a la pagina de UPSLP">
-				<li>Element 1</li>
+			<a href="cosco_page.html"
+			alt="ir a La Pagina Primer Parcial(Coscto)">
+				<li>PRIMER PARCIAL </li>
 			<a/>
 			<a href="http://google.com"
 			alt="ir a la pagina de Google">	
@@ -56,9 +62,12 @@
 	<hr width="50%" align="right " noshade color="blue" />
 	<!--desordered list -->
 	<ul type="disc">
+
 		<li>Element 1</li>
 		<li>Element 2</li>
-		<li>Element 3</li>
+		<a href="http://www.upslp.edu.mx" target="ventana">
+		<li>Pagina d ela UPSLP</li>
+		</a>
 		<li>Element 4</li>
 		<li>Element 5</li>
 		<li>Element 6</li>
@@ -89,12 +98,75 @@
 		<p>
 			neta tilin
 		</p>
+		<article>
+			
 		<p align="center">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis faucibus tortor, ut pulvinar est. Suspendisse potenti. Proin rutrum ornare elit, vel sodales elit tempor ut. Maecenas nec quam malesuada, bibendum sapien vitae, accumsan libero.
 			<br/> Etiam dictum odio vitae augue lacinia, non lacinia neque iaculis. Nulla dapibus laoreet ante at placerat. Aenean nec lorem rhoncus, vestibulum dolor eget, facilisis nisi. Nulla ut blandit dolor. Donec aliquam tempor lectus id tempor.
 
 		</p>
+		</article>
+<figure>
+	<img src="imagenes/R.jpg" style="width: 300px;float: right ;"alt="Gatitos tiernos" usemap="#mapa" width="30%" />
+	<map name="mapa">
+		<area shape="rect" coords="50,50,100,100" href="http://www.upslp.edu.mx" alt="zona de egatos">
+		<area shape="circle" coords="10,100,10" href="http://google.com"/>
+	</map>
+		
+</figure>
+		
+		<h2>Table</h2>
+		<!--How to work with a table-->
+		<table style="border: 4px solid black;">
+			<caption>Example</caption>
+			<!------------------------------------------>
+			<thead>
+				<tr><!--Fila 1-->
+					<th colspan="2" style="border: 2px solid greenyellow;background-color:lightblue ;">Titulo 1</th>
+					<th style="border: 2px solid greenyellow;background-color:lightblue ;">Titulo 2</th>
+					<th style ="border: 2px solid greenyellow;background-color:lightblue ;">Titulo 3</th>
+				</tr>
+			</thead>
+			<!------------------------------------------>
+				<tbody>
+				
+			
+				<tr><!--Fila 2-->
+					<td rowspan="2">Columna 1</td>
+					<td>Columna 2</td>
+					<td>Columna 3</td>
+				</tr>
+				<tr>
+					<td>Columna 4</td>
+					<td>Columna 5</td>
+			
+				</tr>
+			</tbody>
+			
+			<!------------------------------------------>
+			
+			<!------------------------------------------>
+			<tfoot>
+				<tr>
+					<td>Columna 7</td>
+					<td>Columna 8</td>
+					<td>Columna 9</td>
+				</tr>
+			</tfoot>
+		</table>
+
+		<!--SECCION DEEEL AUDIO Y VIDEO-->
+		<audio autoplay controls loop>
+			<source src="audio/audioo.mp3" type="audioo/mp3">
+				<source src=" audio/audioo.mp3" type="audio/mp3">
+		</audio>
+
+		<iframe src="info.html" width="90%" name="ventana"></iframe>			
+				<!--SECCION DEEEL AUDIO Y VIDEO-->
+				<h2>Ubicacion</h2>
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3696.095412133513!2d-100.98609389164255!3d22.12233759786763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842a9f5412c6b56f%3A0xe1b3dea4c6aa1c03!2sUniversidad%20Polit%C3%A9cnica%20de%20San%20Luis%20Potos%C3%AD!5e0!3m2!1ses-419!2smx!4v1708608260702!5m2!1ses-419!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>s
 	</section>
+
 	<aside >
 		<blockquote>Quisque feugiat elementum odio, non pellentesque magna vulputate in. Phasellus bibendum tempus sapien in sollicitudin. Mauris volutpat urna tortor, vitae luctus libero condimentum vitae. Vestibulum in orci eget risus feugiat eleifend. Aenean suscipit laoreet facilisis. Praesent id dignissim metus. Ut et malesuada sapien. Donec laoreet nulla auctor, consectetur dolor sit amet, efficitur neque. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam ultricies tincidunt eleifend. Proin mollis magna in dolor dignissim venenatis. Vivamus eget mattis erat, quis lobortis enim. Nullam sit amet justo iaculis, vulputate turpis et, viverra orci. Donec gravida ex leo, eget dignissim libero consectetur eget. Etiam cursus turpis commodo ultricies ultricies.
 		</blockquote>
