@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario 1</title>
+</head>
+
+<body>
+    <style type="text/css">
+        p {
+            text-indent: 5em
+        };
+    </style>
+    <header>
+        <h1>Formulario 1 Portafolio de evidencias </h1>
+    </header>
+    <form method="post" action="" enctype="text/plain">
+        <fieldset>
+            <legend>Informacion General </legend>
+            <label for="pass">Nombre:</label>
+            <input type="text" name="usuario" maxlength="20" placeholder="Nombre del Usuario" required> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <label for="Apellido Paterno">Apellido Paterno:</label>
+            <input type="text" name="usuario" maxlength="20" placeholder="Apellido Paterno">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <label for="Apellido Materno">Apellido Materno:</label>
+            <input type="text" name="usuario" maxlength="20" placeholder="Apellido Materno">&nbsp;&nbsp;&nbsp;<br>
+            <br><br>
+
+            <label for="Nombre de Usuario">Nombre de Usuario:</label>
+            <input type="text" name="Nombre de Usuario" id="N_Usuario" maxlength="20" size="15" placeholder="Nombre de Usuario" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="Contraseña">Contraseña:</label>
+            <input type="password" name="Contraseña" id="Contraseña" maxlength="20" size="15" placeholder="contraseña" title="Contraseña" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="FechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" name="FechaNacimiento" id="FechaNacimiento" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>Datos de Facturacion</legend>
+           <label for="Pais">País:</label>
+            <select name="Pais" id="Pais" required>
+                <option value="" disabled selected>Seleccione un país</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Mexico">Mexico</option>
+                <option value="EUA">EUA</option>
+                <option value="Canada">Canada</option>
+            </select>&nbsp;&nbsp;&nbsp;
+
+
+
+
+            <label for="Ciudad">Ciudad:</label>
+            <input type="text" name="Ciudad" id="Ciudad" maxlength="30" placeholder="Ciudad" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="Calle">Calle:</label>
+            <input type="text" name="Calle" id="Calle" maxlength="50" placeholder="Calle" required><br><br>
+
+            <label for="NumeroCasa">Número de Casa:</label>
+            <input type="text" name="NumeroCasa" id="NumeroCasa" maxlength="10" placeholder="Número de Casa" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="Colonia">Colonia:</label>
+            <input type="text" name="Colonia" id="Colonia" maxlength="30" placeholder="Colonia" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="Email">Email:</label>
+            <input type="email" name="Email" id="Email" maxlength="50" placeholder="Email" required><br><br>
+
+            <label for="RFC">RFC:</label>
+            <input type="text" name="RFC" id="RFC" maxlength="13" placeholder="RFC" required>&nbsp;&nbsp;&nbsp;
+
+            <label for="CodigoPostal">Código Postal:</label>
+            <input type="text" name="CodigoPostal" id="CodigoPostal" maxlength="10" placeholder="Código Postal" required>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Restablecer">
+    </form>
+
+</body>
+
+</html>
