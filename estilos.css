@@ -1,0 +1,44 @@
+body {
+    background-color: #ccc; /* Fondo gris */
+    font-family: Arial, sans-serif; /* Tipo de fuente predeterminado */
+}
+
+.formacont {
+    margin: 20px; 
+}
+
+.form-container label {
+    font-style: italic; 
+}
+
+h1
+{
+	font-style: italic; 
+}
+h2
+{
+	font-style: italic; 
+}
+
+input[type="text"],
+input[type="email"] {
+    margin: 10px 0;
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    width: 100%;
+    padding: 10px;  /* 10px de margen arriba y abajo, 0 de margen a los lados */
+}
+
+
+
+.guardar {
+    display: block; /* Hace que el botón ocupe todo el ancho disponible */
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #007bff; /* Color azul */
+    color: white; /* Texto en blanco */
+    padding: 10px; /* Espacio interno */
+    border: none; /* Quita el borde */
+    border-radius: 5px; /* Añade bordes redondeados */
+    text-align: center; /* Centra el texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre él */
+}
+
