@@ -1,0 +1,64 @@
+/* Estilos para la navegación */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.menu {
+    background-color: #70DCBB;
+    display: block;
+    padding: 20px;
+    float: left;
+    border: 2px solid #70DCBB;
+    margin-right: 5px;
+}
+
+.menu:hover {
+    background-color: lightblue;
+}
+
+/* Estilos para el contenido de los párrafos */
+article {
+    width: 50%;
+    margin-top: 50px;
+    float: left;
+}
+
+/* Estilos para el contenedor del formulario de login */
+h1 {
+    background-color: lightgreen;
+    padding: 20px;
+    border: 2px solid green;
+    margin-bottom: 20px;
+    float: right; /* Alineado a la derecha */
+}
+
+/* Estilos para los contenedores de los inputs */
+.input-container {
+    background-color: lightgreen;
+    padding: 20px;
+    border: 2px solid green;
+    margin-bottom: 20px;
+    float: right
+    ; /* Alineado a la derecha */
+    margin top:40px;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    clear: both;
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
