@@ -1,20 +1,20 @@
-function generarTabla() {
-  var numero = prompt("Introduce un número para generar la tabla de multiplicar:");
-  
-  if (numero === null || isNaN(numero)) {
-    alert("Por favor, introduce un número válido.");
-    return;
-  }
-  
-  numero = parseInt(numero);
-  var tablaHTML = "<h2>Tabla de Multiplicar del " + numero + "</h2><table><tr><th>Multiplicando</th><th>Multiplicador</th><th>Resultado</th></tr>";
-  
-  for (var i = 1; i <= 10; i++) {
-    var resultado = numero * i;
-    tablaHTML += "<tr><td>" + numero + "</td><td>" + i + "</td><td>" + resultado + "</td></tr>";
-  }
-  
-  tablaHTML += "</table>";
-  
-  document.getElementById("tabla-container").innerHTML = tablaHTML;
+function evalua() {
+    var cadena = document.getElementById('cadena').value;
+    var contieneMayusculas = /[A-Z]/.test(cadena);
+    var contieneMinusculas = /[a-z]/.test(cadena);
+
+    var mensaje = '';
+
+    if (contieneMayusculas && contieneMinusculas) {
+        mensaje = 'La cadena "' + cadena + '" contiene mayúsculas y minúsculas.';
+    } else if (contieneMayusculas) {
+        mensaje = 'La cadena "' + cadena + '" contiene solo mayúsculas.';
+    } else if (contieneMinusculas) {
+        mensaje = 'La cadena "' + cadena + '" contiene solo minúsculas.';
+    } else {
+        mensaje = 'La cadena "' + cadena + '" no contiene ni mayúsculas ni minúsculas.';
+    }
+
+    document.getElementById('parrafo').innerText = mensaje;
 }
+
