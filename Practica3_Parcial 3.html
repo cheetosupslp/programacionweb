@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de RFC</title>
+    <style>
+        input[type="text"], input[type="submit"] {
+            margin-bottom: 10px;
+        }
+            
+	body {
+	    background-color: #f2f2f2; /* Fondo gris */
+	    font-family: Arial, sans-serif;
+	    margin: 0;
+	}
+
+	form {
+	    max-width: 600px; /* Ancho máximo del formulario */
+	    margin: 0 auto; /* Centrar el formulario en la página */
+	    padding: 20px;
+	    background-color: #fff; /* Fondo blanco para el formulario */
+	    border-radius: 5px;
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+	}
+
+	input[type="text"] {
+	    width: calc(100% - 22px); /* Ancho total del contenedor menos el padding */
+	    padding: 10px;
+	    margin-bottom: 10px;
+	    border: 1px solid #ccc;
+	    border-radius: 3px;
+	    box-sizing: border-box; /* Incluir padding y border en el ancho */
+	}
+
+	input[type="button"] {
+	    width: 100%; /* Ocupa todo el ancho disponible */
+	    padding: 10px;
+	    margin-bottom: 10px;
+	    background-color: #007bff; /* Azul */
+	    color: #fff; /* Texto blanco */
+	    border: none;
+	    border-radius: 3px;
+	    cursor: pointer;
+	}
+
+	input[type="button"]:hover {
+	    background-color: #0056b3; /* Azul más claro al pasar el mouse */
+	}
+    </style>
+</head>
+<body>
+    <form name="formu" id="formu">
+        <label for="nombre">Nombre:</label><br/>
+        <input type="text" id="nombre" name="nombre"><br/>
+        <label for="ap">Apellido paterno:</label><br/>
+        <input type="text" id="ap" name="ap"><br/>
+        <label for="am">Apellido materno:</label><br/>
+        <input type="text" id="am" name="am"><br/>
+        <label for="anio">Año de nacimiento:</label><br/>
+        <input type="text" id="anio" name="anio"><br/>
+        <label for="mes">Mes de nacimiento:</label><br/>
+        <input type="text" id="mes" name="mes"><br/>
+        <label for="dia">Día de nacimiento:</label><br/>
+        <input type="text" id="dia" name="dia"><br/>
+        <label for="resultado">Resultado (RFC):</label><br/>
+        <input type="text" id="resultado" name="resultado" readonly><br/> 
+    </form>
+    <br/>
+    <input type="button" value="Generar el RFC" onclick="generaRFC()">
+    
+    <script>
+        function generaRFC() {
+            // Obtenemos los valores ingresados por el usuario
+            var nombre = document.getElementById('nombre').value.toUpperCase();
+            var apPaterno = document.getElementById('ap').value.toUpperCase();
+            var apMaterno = document.getElementById('am').value.toUpperCase();
+            var anio = document.getElementById('anio').value.slice(-2);
+            var mes = document.getElementById('mes').value.padStart(2, '0');
+            var dia = document.getElementById('dia').value.padStart(2, '0');
+
+            // Generamos el RFC
+            var rfc = apPaterno.slice(0, 2) + apMaterno.charAt(0) + nombre.charAt(0) + anio + mes + dia;
+
+            // Mostramos el RFC en el campo de resultado
+            document.getElementById('resultado').value = rfc;
+        }
+    </script>
+</body>
+</html>
