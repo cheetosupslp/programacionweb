@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrousel</title>
+  <style>
+    .carousel {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+      overflow: hidden;
+      border: 4px solid #ccc; /* Bordes más notorios */
+      border-radius: 15px; /* Bordes más redondeados */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Más sombreado */
+    }
+
+    .carousel-content {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-content img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    #prevBtn {
+      left: 0;
+    }
+
+    #nextBtn {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="carousel">
+    <button id="prevBtn">&#10094;</button>
+    <div class="carousel-content">
+      <img src="imagenes/cris1.jpeg" alt="Descripción de la imagen" class="imagenes">
+      <img src="imagenes/cris2.jpg" alt="Descripción de la imagen" class="imagenes">
+      <img src="imagenes/cris3.jpg" alt="Descripción de la imagen" class="imagenes">
+      <img src="imagenes/cris4.jpg" alt="Descripción de la imagen" class="imagenes">
+    </div>
+    <button id="nextBtn">&#10095;</button>
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      const slides = document.querySelectorAll('.carousel-content img');
+      
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.transition = 'none';
+      }
+
+      slideIndex++;
+      
+      if (slideIndex > slides.length) { 
+        slideIndex = 1;
+        document.querySelector('.carousel-content').style.transform = 'translateX(0)';
+      }
+      
+      document.querySelector('.carousel-content').style.transform = `translateX(-${slideIndex - 1}00%)`;
+
+      setTimeout(showSlides, 2000); 
+    }
+  </script>
+</body>
+</html>
+
