@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Palíndromo</title>
+<!-- Vincular la hoja de estilos externa -->
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script type="text/javascript">
+// Función para evaluar si una cadena es un palíndromo
+function palindromo(cadena) {
+    var resultado = "La frase \"" + cadena + "\" \n";
+    // Convertir la cadena a minúsculas
+    var cadenaOriginal = cadena.toLowerCase();
+    // Separar la cadena en un array de caracteres
+    var letrasEspacios = cadenaOriginal.split("");
+    var cadenaSinEspacios = "";
+    // Eliminar los espacios de la cadena
+    for (var i in letrasEspacios) {
+        if (letrasEspacios[i] != " ") {
+            cadenaSinEspacios += letrasEspacios[i];
+        }
+    }
+    // Crear un array de letras y su versión invertida
+    var letras = cadenaSinEspacios.split("");
+    var letrasReves = cadenaSinEspacios.split("").reverse();
+    var iguales = true;
+    // Comparar las letras de la cadena original con la invertida
+    for (var i in letras) {
+        if (letras[i] != letrasReves[i]) {
+            iguales = false;
+            break;
+        }
+    }
+    // Determinar si es un palíndromo
+    if (iguales) {
+        resultado += " es un palíndromo";
+    } else {
+        resultado += " no es un palíndromo";
+    }
+    // Mostrar el resultado en el párrafo con id 'resultado'
+    document.getElementById("resultado").innerText = resultado;
+}
+</script>
+</head>
+<body>
+<!-- Formulario para ingresar la frase -->
+<form>
+    <label for="frase">Frase a evaluar:</label>
+    <input type="text" id="frase" name="frase">
+    <button type="button" onclick="palindromo(document.getElementById('frase').value)">Evaluar</button>
+</form>
+<!-- Párrafo para mostrar el resultado -->
+<p id="resultado"></p>
+</body>
+</html>
