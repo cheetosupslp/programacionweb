@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Web Storage - Green Tech</title>
+
+    <style>
+        body {
+            background-color: #93DF87; /* Verde muy suave */
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos CSS para la barra de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Asegura que la barra de navegación esté sobre otros elementos */
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        #cajaformulario, #cajadatos {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: calc(100% - 40px);
+            max-width: 600px;
+        }
+
+        #clave, #texto {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #cajadatos > div {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            overflow-wrap: break-word;
+        }
+
+        #formulario p, #cajadatos p {
+            margin: 0;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 60px; /* Espacio para la barra de navegación fija */
+        }
+    </style>
+    
+    <script>
+        function iniciar() {
+            var boton = document.getElementById('grabar');
+            boton.addEventListener('click', nuevoitem, false);
+            mostrar();
+        }
+
+        function nuevoitem() {
+            var clave = document.getElementById('clave').value;
+            var valor = document.getElementById('texto').value;
+            localStorage.setItem(clave, valor);
+            mostrar();
+            document.getElementById('clave').value = '';
+            document.getElementById('texto').value = '';
+        }
+
+        function mostrar() {
+            var cajadatos = document.getElementById('cajadatos');
+            cajadatos.innerHTML = '';
+            for (var f = 0; f < localStorage.length; f++) {
+                var clave = localStorage.key(f);
+                var valor = localStorage.getItem(clave);
+                cajadatos.innerHTML += '<div>' + clave + ' - ' + valor + '</div>';
+            }
+        }
+
+        window.addEventListener('load', iniciar, false);
+
+        function elimina() {
+            if (confirm('¿Estás seguro que quieres borrar los datos?')) {
+                localStorage.clear();
+                mostrar();
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
+    </nav>
+
+    <h1>SECCIÓN DE COMENTARIOS</h1>
+
+    <section id="cajaformulario">
+        <form id="formulario">
+            <p>Usuario:<br><input type="text" name="clave" id="clave"></p>
+            <p>Comentario:<br><textarea name="text" id="texto"></textarea></p>
+            <p><input type="button" name="grabar" id="grabar" value="Publicar"></p>
+            <p><input type="button" name="eliminar" id="eliminar" value="Borrar" onclick="elimina()"></p>
+        </form>
+    </section>
+
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COMENTARIOS:</p>
+    <section id="cajadatos">
+        <p>Aún no registras información</p>
+    </section>
+</body>
+</html>

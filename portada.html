@@ -1,0 +1,116 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Tech - Portada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome para iconos -->
+    <style>
+        /* Estilos para la imagen de fondo y el contenido centrado */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bg-image {
+            /* La imagen debe estar en el mismo directorio que este archivo HTML */
+            background-image: url('fondo.jpg'); /* Cambia 'fondo.jpg' por el nombre de tu imagen de fondo */
+            filter: blur(8px); /* Desenfocar la imagen de fondo */
+            -webkit-filter: blur(8px);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: absolute;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+
+        .content h1 {
+            font-size: 50px;
+            color: #4CAF50; /* Color verde */
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 20px;
+            color: #e0f7fa; /* Color verde claro */
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            background-color: #4CAF50; /* Color verde */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para la barra de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
+    </nav>
+
+    <!-- Imagen de fondo -->
+    <div class="bg-image"> 
+    	<img src="ImágenesProyecto/portada.jpeg" alt="Descripción de la imagen">
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+        <h1>Bienvenido a Green Tech</h1>
+        <p>Innovación y sostenibilidad para un futuro verde</p>
+        <a href="green tech.html" class="btn">Descubre más</a>
+    </div>
+
+</body>
+</html>

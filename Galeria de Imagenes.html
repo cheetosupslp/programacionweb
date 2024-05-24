@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Tech - Página Principal</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazar a tu hoja de estilos -->
+
+    <!-- Estilos para el carrusel -->
+    <style>
+    	 body {
+            background-color: #93DF87; /* Verde muy suave */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos CSS para la barra de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel img {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Carrusel de imágenes -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="ImágenesProyecto/memess1.jpeg" alt="Imagen 1">
+            <img src="ImágenesProyecto/memess2.jpeg" alt="Imagen 2">
+            <img src="ImágenesProyecto/memess3.jpeg" alt="Imagen 3">
+            <img src="ImágenesProyecto/memess4.jpg" alt="Imagen 3">
+        </div>
+        <button class="carousel-btn prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-btn next-btn" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <!-- Script para el carrusel -->
+    <script>
+        var slideIndex = 1;
+
+        showSlide(slideIndex);
+
+        function prevSlide() {
+            showSlide(slideIndex -= 1);
+        }
+
+        function nextSlide() {
+            showSlide(slideIndex += 1);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function showSlide(n) {
+            var i;
+            var slides = document.getElementsByClassName("carousel")[0].getElementsByTagName("img");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>

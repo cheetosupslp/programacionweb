@@ -1,0 +1,134 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta Interactiva</title>
+    <style>
+        body {
+            background-color: #93DF87; /* Verde muy suave */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos CSS para la barra de navegación */
+        nav {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilos para la calculadora */
+        .calculator {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+       <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
+    </nav>
+
+    <!-- Calculadora de huella de carbono -->
+    <div class="calculator">
+        <h2>Calculadora de Huella de Carbono</h2>
+        <label for="transporte">Consumo de Combustible para Transporte (litros/mes):</label>
+        <input type="number" id="transporte" placeholder="Escribe el consumo de combustible en litros">
+
+        <label for="electricidad">Consumo de Electricidad (kWh/mes):</label>
+        <input type="number" id="electricidad" placeholder="Escribe el consumo de electricidad en kWh">
+
+        <label for="gas">Consumo de Gas Natural (m3/mes):</label>
+        <input type="number" id="gas" placeholder="Escribe el consumo de gas natural en m3">
+
+        <button onclick="calcularHuella()">Calcular Huella de Carbono</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <!-- Script para la calculadora -->
+    <script>
+        function calcularHuella() {
+            var consumoTransporte = parseFloat(document.getElementById('transporte').value);
+            var consumoElectricidad = parseFloat(document.getElementById('electricidad').value);
+            var consumoGas = parseFloat(document.getElementById('gas').value);
+
+            // Calcular la huella de carbono total (ficticia)
+            var huellaTotal = (consumoTransporte * 2.3) + (consumoElectricidad * 0.5) + (consumoGas * 2.3);
+
+            // Mostrar el resultado en el div de resultado
+            document.getElementById('resultado').innerText = "Tu huella de carbono total es: " + huellaTotal.toFixed(2) + " kgCO2e/mes";
+        }
+    </script>
+</body>
+</html>
