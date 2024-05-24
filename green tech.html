@@ -323,21 +323,7 @@ button:hover {
         La neutralidad de carbono se ha convertido en general en un reconocimiento mundial como la misión a la que la industria de las Tecnologías de Información y Comunicaciones (TIC) está contribuyendo activamente. Hoy en día, los avances en las TIC se centran más en usar menos energía para transmitir, procesar y almacenar más información, al tiempo que hace que los sistemas de energía sean más eficientes.</p>
     </div>
     <
-    <div class="recuadro-verde">
-        <!-- Formulario de solución ecológica -->
-        <h2>Formulario de Solución Ecológica para No Impresión de Papel</h2>
-        <form id="formularioSolucion" onsubmit="return false;">
-            <label for="solucion">Describe tu solución ecológica para reducir la impresión de papel:</label><br>
-            <textarea id="solucion" name="solucion" rows="4" cols="50"></textarea><br><br>
-            <button onclick="generarPDFSolucion()">Generar PDF</button>
-        </form>
-
-        <!-- Cuestionario de Diagnóstico sobre Green Tech -->
-        <h2>Cuestionario de Diagnóstico sobre Green Tech</h2>
-        <form id="form|ularioDiagnostico" onsubmit="return false;">
-            <!-- Tus preguntas aquí ... -->
-            <button onclick="generarPDFDiagnostico()">Generar PDF</button>
-        </form>
+    
 
 
     <footer> 
@@ -345,28 +331,7 @@ button:hover {
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script>
-        // Función para generar el PDF del formulario de solución
-        function generarPDFSolucion() {
-            var solucion = document.getElementsByName('solucion')[0].value;
-            var doc = new jsPDF();
-            doc.text(solucion, 10, 10);
-            doc.save("solucion_ecologica.pdf");
-        }
-
-        // Función para generar el PDF del cuestionario de diagnóstico
-        function generarPDFDiagnostico() {
-            var pregunta1 = document.getElementsByName('pregunta1')[0].value;
-            var pregunta2 = document.getElementsByName('pregunta2')[0].value;
-            var pregunta3 = document.getElementsByName('pregunta3')[0].value;
-            var doc = new jsPDF();
-            doc.text("¿Qué entiendes por Green Tech?\n" + pregunta1, 10, 10);
-            doc.text("¿Cuáles crees que son los principales objetivos de la Green Tech?\n" + pregunta2, 10, 30);
-            doc.text("¿Cuál es tu opinión sobre la importancia de la Green Tech en la actualidad?\n" + pregunta3, 10, 50);
-            doc.save("cuestionario_diagnostico.pdf");
-        }
-
-    </script>
+    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js"></script> <!-- Tiny Slider JavaScript -->
 <script>
