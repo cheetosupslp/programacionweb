@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Obtener totales del formulario</title>
+    <link rel="stylesheet" href="estilos.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+	<script type="text/javascript" src="jspdf.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.addimage.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.standard_fonts_metrics.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.split_text_to_size.js"></script>
+    <script type="text/javascript" src="jspdf.plugin.from_html.js"></script>
+</head>
+<style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #93DF87; /* Verde muy suave */
+        }
+
+        #contiene {
+            margin: auto;
+            padding: 20px;
+            max-width: 800px;
+            background-color: #f9f9f9; /* Fondo blanco */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: 'Charmonman', cursive;
+            color: #4CAF50; /* Verde */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049; /* Verde más oscuro */
+        }
+
+        #total, #comentario {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #pdfViewer {
+            display: none; /* Ocultar inicialmente el visor de PDF */
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+        </style>
+<script>
+	var total;
+function califica(){
+	total=0;
+    	//Evalua cada pregunta
+    	for (var x=1;x<=10;x++){
+        var res=0;
+        var nom="r"+x;
+        var resul=document.getElementsByName(nom);
+        for(var i=0;i<resul.length;i++){
+            if(resul[i].checked==true)
+                res=parseInt(resul[i].value);
+        }
+        total=total+res;
+        document.getElementById("total").innerHTML="Puntos obtenidos: "+total+" Puntos";
+        }
+        if(total==100)
+        	document.getElementById("comentario").innerHTML="¡¡¡EXCELENTE!!! Se ve que conoces sobre ecología. Eres muy bueno resolviendo cuestionarios. Sigue cuidando el planeta";
+        else
+        	if(total==90 || total==80)
+        	document.getElementById("comentario").innerHTML="¡MUY BIEN!";
+        else
+        	if(total==70 || total==60)
+        	document.getElementById("comentario").innerHTML="REGULAR. Puedes mejorar";
+        else
+        	if(total<=50 || total>=10)
+        	document.getElementById("comentario").innerHTML="MAL, ESTUDIA UN POCO MÁS. Suerte para la próxima";
+        else
+        	document.getElementById("comentario").innerHTML="RESPUESTAS INCORRECTAS. Lamentablemente todas tus respuestas son incorrectas.";
+    }
+
+ 
+function generarPDF(){
+
+//Crear un objeto o instancia jsPDF
+var doc = new jsPDF();
+
+//Definir el tamaño de la letra
+doc.setFontSize(30);
+//Color del texto
+doc.setTextColor(0,0,0);
+
+/*var comentario = document.getElementById("comentario").innerHTML;
+    doc.text(20, 20, "Resultados del test:");
+    doc.text(20, 30, comentario);*/
+
+doc.text(50, 35, "Resultados del test:"); //Ubicación, Texto
+if (total == 100)
+        doc.text(20, 30, "100 puntos. Excelente. Todas tus respuestas son correctas");
+    else if (total==90 || total==80)
+        doc.text(20, 30, "80-90 puntos. Muy bien. Obtuviste 9-10 preguntas correctas");
+    else if (total==70 || total==60)
+        doc.text(20, 30, "60-70 puntos. Regular. Obtuviste 6-8 preguntas correctas");
+    else if (total<=50 || total>=10)
+        doc.text(20, 30, "10-50 puntos. Mal. Obtuviste 1-5 preguntas correctas");
+    else
+        doc.text(20, 30, "0 puntos. Muy mal. Todas tus respuestas son incorrectas");
+
+//Guardar el PDF
+doc.save('resultados_cuestionario.pdf');
+
+console.log("Función generar() llamada correctamente.");
+}
+
+</script>
+
+<body>
+    <div id="contiene">
+	<h1>Responde la encuesta</h1>
+	<h2>Tu opinión es importante</h2>
+
+	<h2>Cuestionario sobre soluciones ecológicas para la no impresión de papel</h2>
+<div>
+	<form>
+	<ul>
+
+		<li>1. ¿Cuál de las siguientes opciones es una alternativa ecológica a la impresión de papel?</li>
+		<input type="radio" name="r1" id="r1" value="0"/>a) Utilizar papel reciclado<br/>
+		<input type="radio" name="r1" id="r1" value="10"/>b) Imprimir en ambos lados de la hoja<br/>
+		<input type="radio" name="r1" id="r1" value="0"/>c) Reducir el tamaño de fuente en los documentos<br/>
+		<input type="radio" name="r1" id="r1" value="0"/>d) No hay solución ecológica<br/>
+		<br>
+		
+		<li>2. ¿Qué acción ayuda a reducir la cantidad de papel utilizado en una oficina?</li>
+		<input type="radio" name="r2" id="r2" value="0"/>a) Imprimir correos electrónicos<br/>
+		<input type="radio" name="r2" id="r2" value="0"/>b) Utilizar papel de impresión de alta calidad<br/>
+		<input type="radio" name="r2" id="r2" value="0"/>c) Imprimir copias de seguridad de documentos importantes<br/>
+		<input type="radio" name="r2" id="r2" value="10"/>d) Digitalizar documentos y almacenarlos en línea<br/>
+		<br>
+
+		<li>3. ¿Cuál de las siguientes prácticas no contribuye a la reducción del uso de papel?</li>
+		<input type="radio" name="r3" id="r3" value="0"/>a) Imprimir solo cuando sea necesario<br/>
+		<input type="radio" name="r3" id="r3" value="10"/>b) Utilizar papel de doble cara<br/>
+		<input type="radio" name="r3" id="r3" value="0"/>c) Enviar documentos por correo electrónico en lugar de imprimirlos<br/>
+		<input type="radio" name="r3" id="r3" value="0"/>d) Imprimir múltiples copias de documentos para archivar<br/>
+		<br>
+
+        <li>4. ¿Qué tecnología permite la firma electrónica de documentos sin necesidad de imprimirlos?</li>
+		<input type="radio" name="r4" id="r4" value="0"/>a) Fax<br/>
+		<input type="radio" name="r4" id="r4" value="0"/>b) Fotocopiadora<br/>
+		<input type="radio" name="r4" id="r4" value="0"/>c) Escáner<br/>
+		<input type="radio" name="r4" id="r4" value="10"/>d) Software de firma electrónica<br/>
+		<br>
+
+		<li>5. ¿Cuál de las siguientes opciones es un servicio de almacenamiento en la nube que puede ayudar a reducir la necesidad de imprimir documentos?</li>
+		<input type="radio" name="r5" id="r5" value="0"/>a) Facebook<br/>
+		<input type="radio" name="r5" id="r5" value="0"/>b) Instagram<br/>
+		<input type="radio" name="r5" id="r5" value="10"/>c) Dropbox<br/>
+		<input type="radio" name="r5" id="r5" value="0"/>d) WhatsApp<br/>
+		<br>
+
+		<li>6. ¿Qué dispositivo permite la visualización de documentos digitales sin necesidad de imprimirlos?</li>
+		<input type="radio" name="r6" id="r6" value="0"/>a) Impresora<br/>
+		<input type="radio" name="r6" id="r6" value="0"/>b) Escáner Presley<br/>
+		<input type="radio" name="r6" id="r6" value="0"/>c) Computadora portátil<br/>
+		<input type="radio" name="r6" id="r6" value="10"/>d) Tableta<br/>
+		<br>
+
+		<li>7. ¿Qué práctica ayuda a minimizar el uso de papel en reuniones y presentaciones?</li>
+		<input type="radio" name="r7" id="r7" value="0"/>a) Imprimir agendas y presentaciones para todos los asistentes<br/>
+		<input type="radio" name="r7" id="r7" value="0"/>b) Utilizar pizarras y marcadores<br/>
+		<input type="radio" name="r7" id="r7" value="0"/>c) Enviar documentos por correo postal<br/>
+		<input type="radio" name="r7" id="r7" value="10"/>d) Utilizar presentaciones digitales y compartir documentos en línea<br/>
+		<br>
+
+		<li>8. ¿Cuál de las siguientes opciones es una ventaja de utilizar documentos digitales en lugar de impresos en papel?</li>
+		<input type="radio" name="r8" id="r8" value="0"/>a) Mayor costo<br/>
+		<input type="radio" name="r8" id="r8" value="0"/>b) Menor accesibilidad<br/>
+		<input type="radio" name="r8" id="r8" value="10"/>c) Facilidad para realizar cambios y actualizaciones<br/>
+		<input type="radio" name="r8" id="r8" value="0"/>d) Mayor impacto ambiental<br/>
+		<br>
+
+		<li>9. ¿Qué plataforma permite la colaboración en tiempo real en documentos digitales sin necesidad de imprimirlos?</li>
+		<input type="radio" name="r9" id="r9" value="0"/>a) Microsoft Word<br/>
+		<input type="radio" name="r9" id="r9" value="10"/>b) Google Docs<br/>
+		<input type="radio" name="r9" id="r9" value="0"/>c) Adobe Acrobat<br/>
+		<input type="radio" name="r9" id="r9" value="0"/>d) Apple Pages<br/>
+		<br>
+
+		<li>10. ¿Cuál de las siguientes acciones contribuye a la conservación de los recursos naturales al reducir la impresión de papel?</li>
+		<input type="radio" name="r10" id="r10" value="0"/>a) Imprimir documentos innecesarios<br/>
+		<input type="radio" name="r10" id="r10" value="0"/>b) Utilizar papel de un solo lado<br/>
+		<input type="radio" name="r10" id="r10" value="10"/>c) Digitalizar documentos y almacenarlos en la nube<br/>
+		<input type="radio" name="r10" id="r10" value="0"/>d) Desperdiciar papel en el proceso de impresión<br/>
+		<br>
+
+	</ul>
+
+	<nav>
+        <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
+        <a href="preguntas.html">Preguntas Frecuentes</a>
+        <a href="FormularioProyecto.html">Preguntas Frecuentes</a>
+    </nav>
+</form>
+</div>
+<input type="button" value="Calificar" onclick="califica()">
+<p></p>
+<p id="total">   </p>
+<p id="comentario">   </p>
+<input type="button" onclick="generarPDF()" value="Ver resultados"/> <br/>
+<iframe id="pdfViewer" frameborder="0" width="600" height="500"></iframe>
+</div>
+</body>
+</html>
