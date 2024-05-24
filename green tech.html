@@ -4,58 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Tech</title>
-    <style>
-        /* Estilos CSS para la barra de navegación */
-        nav {
-            background-color: #4CAF50;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        /* Estilos CSS para el contenido */
-        .content {
-            margin: 20px;
-            column-count: 2; /* Dividir en dos columnas */
-            column-gap: 20px; /* Espacio entre columnas */
-        }
-        .content p {
-            margin-bottom: 20px; /* Espacio entre párrafos */
-        }
-        h2 {
-            color: #4CAF50;
-            font-size:20px;
-        }
-        h3 {
-            margin: 25px;
-            color: #0D5F14;
-            background-color: gray;
-            text-align: center;
-            padding: 10px;
-            border: 2px solid gray;
-        }
-        h4 {
-            display: block;
-            margin-block-start: 1.33em;
-            margin-block-end: 1.33em;
-            margin-inline-start: 0px;
-            margin-inline-end: 0px;
-            font-weight: bold;
-        }
-        ul {
-            list-style-type: none;
-        }
-        .imagenes
-        {
-            width:150px;
-            height:200px;
-            margin:100px; 
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css"> <!-- Tiny Slider para el carrusel -->
+  <style>
+/* Estilos para los párrafos */
+
+
+p {
+    margin-top: 40px;
+}
+
+body {
+    background-color: #93DF87; /* Verde muy suave */
+}
+
+
+/* Estilos CSS para la barra de navegación */
+nav {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que la barra de navegación esté sobre otros elementos */
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #45a049;
+}
+
+/* Otros estilos comunes */
+.content {
+    margin: 20px;
+    column-count: 2; /* Dividir en dos columnas */
+    column-gap: 20px; /* Espacio entre columnas */
+}
+
+.content p {
+    margin-bottom: 20px; /* Espacio entre párrafos */
+}
+
+h2 {
+    color: #4CAF50;
+    font-size: 24px;
+    font-family: 'Arial', sans-serif; /* Cambiar la tipografía */
+}
+
+h3 {
+    margin: 25px;
+    color: #0D5F14;
+    background-color: gray;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid gray;
+    font-family: 'Arial', sans-serif; /* Cambiar la tipografía */
+}
+
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Cambiar la tipografía */
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Estilos para la portada */
+.portada {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.portada{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;/* Reemplaza con la URL de tu imagen */
+    background-size: cover; /* La imagen cubrirá todo el contenedor */
+    background-position: center;
+    filter: blur(8px); /* Ajusta el nivel de desenfoque según tu preferencia */
+    z-index: -1;
+}
+
+.portada h1 {
+    font-size: 4em;
+    margin-bottom: 0;
+}
+
+.portada p {
+    font-size: 1.5em;
+}
+
+/* Estilos para el recuadro de color verde claro */
+.recuadro-verde {
+    background-color: #d0f0c0;
+    padding: 20px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Estilos para los formularios */
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Estilos para la calculadora */
+.calculator {
+    float: left;
+    width: 50%; /* Ajusta el ancho según tu preferencia */
+    margin-right: 5%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Estilos para el video */
+.video-container {
+    float: right;
+    width: 50%; /* Ajusta el ancho según tu preferencia */
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 300px; /* Ajusta la altura del video según tu preferencia */
+}
+
+
     </style>
 </head>
 <body>
@@ -68,11 +199,34 @@
  })();
 </script>
 
+<script>
+    // Función para agregar comentario
+    function agregarComentario() {
+        var nombre = document.getElementById('nombre').value;
+        var comentario = document.getElementById('comentario').value;
+        var comentariosDiv = document.getElementById('comentarios');
+        var comentarioHTML = '<div><strong>' + nombre + ':</strong> ' + comentario + '</div>';
+        comentariosDiv.innerHTML += comentarioHTML;
+    }
+
+    // Función para enviar correo electrónico
+    function enviarCorreo() {
+        var nombreContacto = document.getElementById('nombreContacto').value;
+        var emailContacto = document.getElementById('emailContacto').value;
+        var mensajeContacto = document.getElementById('mensajeContacto').value;
+
+        alert("Mensaje enviado correctamente. ¡Gracias por contactarnos, " + nombreContacto + "!");
+    }
+</script>
     <!-- Barra de navegación -->
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Sobre nosotros</a>
-        <a href="#">Contacto</a>
+   <nav>
+        <a href="portada.html">Inicio</a>
+        <a href="green tech.html">Informacion Basica</a>
+        <a href="redes_sociales.html">Redes Sociales</a>
+        <a href="herramienta interactica.html">Herramienta Interactiva</a>
+        <a href="Galeria de Imagenes.html">Galeria de Memes</a>
+        <a href="Comentarios.html">Seccion de comentarios</a>
+        <a href="GraficoAutosElectricos.html">Grafica</a>
     </nav>
     <!-- Contenido principal -->
     <div class="content">
@@ -114,6 +268,8 @@
         <h3>Datos sobre Green Tech:</h3>
         <p>Crecimiento del Mercado: El sector de Green Tech ha experimentado un crecimiento significativo en las últimas décadas, con un aumento en la inversión y la adopción de tecnologías sostenibles en diversos sectores, incluyendo energía, transporte, construcción, agricultura, y más.</p><br>
         <p>Inversiones: Según informes de diversas instituciones financieras y de investigación, las inversiones en Green Tech han ido en aumento, con un interés creciente por parte de los inversores, gobiernos y empresas en desarrollar y adoptar soluciones tecnológicas que reduzcan el impacto ambiental.</p><br>
+
+        <br><br><br><br>
         <p>Beneficios Económicos: Además de los beneficios ambientales, la Green Tech también está demostrando ser económicamente viable, con muchas soluciones que ofrecen ahorros a largo plazo en costos operativos y una mayor eficiencia energética.</p><br>
 
         <h3>Futuro de Green Tech:</h3>
@@ -123,6 +279,9 @@
         Energía Solar: Paneles solares más asequibles y eficientes, así como integración en edificios y vehículos.
         Energía Eólica: Turbinas eólicas más grandes y tecnologías de flotación en alta mar.</p><br>
         <h2>Eficiencia Energética:</h2>
+        <div class="video-container">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/6TmSqBz4esU?si=zXRa9weIOZfMJqTq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
         <p>Edificios Inteligentes: Integración de sensores y automatización para reducir el consumo de energía en hogares y oficinas.
         Transporte Eficiente: Continuación del desarrollo de vehículos eléctricos y sistemas de transporte público limpios.
         Electrodomésticos y Dispositivos Eficientes: Diseño de productos que consuman menos energía.
@@ -139,9 +298,20 @@
         <h2>Innovación y Colaboración:</h2>
         <p>Startups y Emprendimientos Verdes: Apoyo a nuevas empresas que desarrollan soluciones sostenibles.
         Colaboración Global: Compartir conocimientos y recursos a nivel internacional para abordar problemas ambientales.</p>
-        <img src="ImágenesProyecto/GreenTech.jpeg" alt="Descripción de la imagen" class="imagenes">
-        <img src="ImágenesProyecto/ParedVerde.jpg" alt="Descripción de la imagen" class="imagenes">
-        <img src="ImágenesProyecto/TechoSolar.jpg" alt="Descripción de la imagen" class="imagenes">
+     
+
+        <div class="slider">
+        <div class="my-slider">
+            <img src="ImágenesProyecto/GreenTech.jpeg" alt="Descripción de la imagen">
+            <img src="ImágenesProyecto/ParedVerde.jpg" alt="Descripción de la imagen">
+            <img src="ImágenesProyecto/TechoSolar.jpg" alt="Descripción de la imagen">
+        </div>
+    </div>
+</div>
+
+
+
+
 
         <h3>Avances actuales de la Green tech:</h3><!--Avance 3-->
         <p>Tecnologías como 5G, la nube y la Inteligencia Artificial han ayudado a mantener la estructura misma de nuestra sociedad unida, permitiendo que muchas personas trabajen desde casa, aprendan de forma remota e inclusive accedan a mejores recursos médicos. Con mayor conectividad, muchas de las actividades cotidianas se han vuelto “virtuales”, definiendo la nueva normalidad.
@@ -150,24 +320,39 @@
 
         La neutralidad de carbono se ha convertido en general en un reconocimiento mundial como la misión a la que la industria de las Tecnologías de Información y Comunicaciones (TIC) está contribuyendo activamente. Hoy en día, los avances en las TIC se centran más en usar menos energía para transmitir, procesar y almacenar más información, al tiempo que hace que los sistemas de energía sean más eficientes.</p>
     </div>
+    <
+    <div class="recuadro-verde">
+        <!-- Formulario de solución ecológica -->
+        <h2>Formulario de Solución Ecológica para No Impresión de Papel</h2>
+        <form id="formularioSolucion" onsubmit="return false;">
+            <label for="solucion">Describe tu solución ecológica para reducir la impresión de papel:</label><br>
+            <textarea id="solucion" name="solucion" rows="4" cols="50"></textarea><br><br>
+            <button onclick="generarPDFSolucion()">Generar PDF</button>
+        </form>
 
-    <h2>Formulario de Solución Ecológica para No Impresión de Papel</h2>
-    <form id="formularioSolucion" onsubmit="return false;">
-        <label for="solucion">Describe tu solución ecológica para reducir la impresión de papel:</label><br>
-        <textarea id="solucion" name="solucion" rows="4" cols="50"></textarea><br><br>
-        <button onclick="generarPDFSolucion()">Generar PDF</button>
-    </form>
+        <!-- Cuestionario de Diagnóstico sobre Green Tech -->
+        <h2>Cuestionario de Diagnóstico sobre Green Tech</h2>
+        <form id="form|ularioDiagnostico" onsubmit="return false;">
+            <!-- Tus preguntas aquí ... -->
+            <button onclick="generarPDFDiagnostico()">Generar PDF</button>
+        </form>
 
-    <h2>Cuestionario de Diagnóstico sobre Green Tech</h2>
-    <form id="formularioDiagnostico" onsubmit="return false;">
-        <label for="pregunta1">¿Qué entiendes por Green Tech?</label><br>
-        <textarea id="pregunta1" name="pregunta1" rows="2" cols="50"></textarea><br><br>
-        <label for="pregunta2">¿Cuáles crees que son los principales objetivos de la Green Tech?</label><br>
-        <textarea id="pregunta2" name="pregunta2" rows="2" cols="50"></textarea><br><br>
-        <label for="pregunta3">¿Cuál es tu opinión sobre la importancia de la Green Tech en la actualidad?</label><br>
-        <textarea id="pregunta3" name="pregunta3" rows="2" cols="50"></textarea><br><br>
-        <button onclick="generarPDFDiagnostico()">Generar PDF</button>
-    </form>
+        <!-- Espacio de contacto -->
+        <h2>Contacto</h2>
+        <form id="formularioContacto">
+            <!-- Campos de contacto aquí ... -->
+            <button onclick="enviarCorreo()">Enviar Mensaje</button>
+        </form>
+
+        <h1>Contacto</h1> <br/>
+ 
+    <h2>¿Quieres contactarnos?</h2>
+<h2>Estas son nuestras formas de contacto</h2> <br/>
+ 
+   
+    </div>
+
+
 
     <footer> 
         <h4 align="center">Universidad Politecnica de SLP © Luis Emmanuel Aronia Silva, Leonardo Nuñez de Jesus</h4>
@@ -194,6 +379,24 @@
             doc.text("¿Cuál es tu opinión sobre la importancia de la Green Tech en la actualidad?\n" + pregunta3, 10, 50);
             doc.save("cuestionario_diagnostico.pdf");
         }
+
     </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.js"></script> <!-- Tiny Slider JavaScript -->
+<script>
+    // Inicializar el carrusel
+    var slider = tns({
+        container: '.my-slider',
+        items: 1,
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        autoplayTimeout: 3000,
+        controls: false,
+        nav: false,
+        mouseDrag: true
+    });
+</script>
 </body>
 </html>
+
